@@ -65,12 +65,16 @@
         {% block content %}{% endblock %}
     {% endblock %}
     </div>
-    <footer class="page-footer font-small blue" style="position: fixed; left: 0; bottom: 0; width: 100%; text-align: center;">       <div class="footer-copyright text-center py-3 bg-dark text-white">©2020 Copyright
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <footer class="page-footer font-small blue" style="position: fixed; left: 0; bottom: 0; width: 100%; text-align: center;">       <div class="footer-copyright text-center py-3 bg-dark text-white">©2020 Copyright
             <a href="https://mdbootstrap.com/" class="text-white"> Kelimelik</a>
-        </div>  
-    </footer>
+          </footer>
+        </div>
+      </div>
+    </div>
     {% endblock %}
-
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     {# *** Allow sub-templates to insert extra html to the bottom of the body *** #}

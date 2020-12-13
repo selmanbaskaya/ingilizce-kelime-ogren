@@ -9,9 +9,13 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div style="margin-left: 50px;">
-        <img src="{{ url_for('static', filename='preparing.jpg') }}" class="mt-2 rounded ml-5" width="1100" />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <img src="{{ url_for('static', filename='preparing.jpg') }}" class="mt-2 rounded" width="100%" />
+            </div>
+        </div>
     </div>
-       
+</body>  
 </html>                  
 {% endblock %}
