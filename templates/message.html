@@ -1,0 +1,16 @@
+{% extends "flask_user_layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 col-xs-12"></div>
+            <div class="col-md-6 col-sm-12 col-xs-12 bg-dark rounded">
+                <p class="text-center text-white font-weight-bold pt-5"> Sistem Mesajı</p><hr>
+                <p class="text-center text-white">{{ message }}</p>
+                <center>
+                    <a href="/word_pool"><button class="btn btn-success mb-5">Kelime Havuzunu Görmek İçin Tıkla</button></a>
+                </center>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12"></div>
+        </div>
+    </div>                
+{% endblock %}

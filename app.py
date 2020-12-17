@@ -30,7 +30,7 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(100, collation='NOCASE'), nullable=False, server_default='')
 
 class Word(db.Model):
-    __tablename__ = 'word'
+    __tablename__ = 'words'
     id = db.Column(db.Integer(), primary_key=True)
     word = db.Column(db.String(50), unique=True)
     word_tr = db.Column(db.String(50), unique=True)
@@ -41,7 +41,34 @@ db.create_all()
 @app.route('/')
 def home_page():
     return render_template('home.html')
-     
+
+@app.route('/add_word')
+def add_word():
+      return render_template('add_word.html')
+
+@app.route('/word_insert', methods = ['POST', 'GET'])
+def word_insert():
+    if request.method == 'POST':
+        try:
+            wordtr = request.form['wordTR']
+            worden = request.form['wordEN']
+            
+            if(Word.query.filter_by(word = worden).first()):
+                msg = "Eklemeye çalıştığın kelime havuzda mevcut! Yeni kelimelerini bekliyoruz :)"
+            else:
+                insert = Word(word = worden, word_tr = wordtr)
+                db.session.add(insert)
+                db.session.commit()
+                msg = "Kelimelik havuzuna yeni bir kelime kazandırdın, teşekkürler!" 
+        except:
+            msg = "Kelimelik hazvuzuna yeni bir kelime kazandırırken bir hata oluştu, tekrar dene!"
+        finally:
+            return render_template("message.html", message = msg)
+
+@app.route('/word_pool')
+def word_pool():
+    row = Word.query.order_by(Word.id).all()
+    return render_template('word_pool.html', rows = row)     
 #@user_logged_out.connect_via(app)
 #def _after_login_hook(sender, user, **extra):
 #logout olduktan sonra

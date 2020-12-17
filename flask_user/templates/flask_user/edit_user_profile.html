@@ -2,7 +2,7 @@
 
 {% block content %}
 {% from "flask_user/_macros.html" import render_field, render_checkbox_field, render_submit_field %}
-<h1>{%trans%}User profile{%endtrans%}</h1>
+<h1>{%trans%}Kullanıcı Bilgileri{%endtrans%}</h1>
 
 <form action="" method="POST" class="form" role="form">
     {{ form.hidden_tag() }}
@@ -20,10 +20,10 @@
 
 {% if not user_manager.USER_ENABLE_AUTH0 %}
     {% if user_manager.USER_ENABLE_CHANGE_USERNAME %}
-        <p><a href="{{ url_for('user.change_username') }}">{%trans%}Change username{%endtrans%}</a></p>
+        <p><a href="{{ url_for('user.change_username') }}">{%trans%}Kullanıcı Adını Değiştir{%endtrans%}</a></p>
     {% endif %}
     {% if user_manager.USER_ENABLE_CHANGE_PASSWORD %}
-        <p><a href="{{ url_for('user.change_password') }}">{%trans%}Change password{%endtrans%}</a></p>
+        <p><a href="{{ url_for('user.change_password') }}">{%trans%}Şifreni Değiştir{%endtrans%}</a></p>
     {% endif %}
 {% endif %}
 

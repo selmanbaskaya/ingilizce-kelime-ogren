@@ -1,0 +1,29 @@
+{% extends "flask_user_layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-sm-12 col-xs-12"></div>
+            <div class="col-md-8 col-sm-12 col-xs-12 rounded">
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr style="display: block;">
+                        <th style="width: 35%;" scope="col">Sıra</th>
+                        <th style="width: 49%;" scope="col">Kelime [TR]</th>
+                        <th  class="pr-4" scope="col">Word [EN]</th>
+                      </tr>
+                    </thead>
+                    <tbody style="display: block; width: 100%; overflow: auto; height: 450px;">
+                        {% for row in rows %}
+                            <tr>
+                                <td style="width: 35%;">{{ row.id }}</td>
+                                <td style="width: 50%;">{{ row.word_tr }}</td>
+                                <td>{{ row.word }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-md-2 col-sm-12 col-xs-12"></div>
+        </div>
+    </div>             
+{% endblock %}
